@@ -1,0 +1,33 @@
+.chart-series-line {
+    -fx-stroke-width: 2px;
+}
+/*#fd7b7c розовый
+00ff00 лайм
+62f5da голуб
+f8f32b желт
+edb482 оран
+007fff лазур
+f55be8 фиол
+bd7728 корич */
+.default-color0.chart-series-line { -fx-stroke: #00ff00; }
+.default-color1.chart-series-line { -fx-stroke: #8B0000; }
+.default-color2.chart-series-line { -fx-stroke: #0000CD; }
+.default-color3.chart-series-line { -fx-stroke: #5e490f; }
+.default-color4.chart-series-line { -fx-stroke: #edb482; }
+.default-color5.chart-series-line { -fx-stroke: #007fff; }
+.default-color6.chart-series-line { -fx-stroke: #f55be8; }
+.default-color7.chart-series-line { -fx-stroke: #FF1493; }
+.default-color8.chart-series-line { -fx-stroke: #650403; }
+
+
+.default-color0.chart-line-symbol { -fx-background-color: #00ff00, #e3f3ff; }
+.default-color1.chart-line-symbol { -fx-background-color: #8B0000, #e3f3ff; }
+.default-color2.chart-line-symbol { -fx-background-color: #0000CD, #e3f3ff; }
+.default-color3.chart-line-symbol { -fx-background-color: #5e490f, #e3f3ff; }
+.default-color4.chart-line-symbol { -fx-background-color: #edb482, #e3f3ff; }
+.default-color5.chart-line-symbol { -fx-background-color: #007fff, white; }
+.default-color6.chart-line-symbol { -fx-background-color: #f55be8, white; }
+.default-color7.chart-line-symbol { -fx-background-color: #FF1493, white; }
+.default-color8.chart-line-symbol { -fx-background-color: #650403, white; }
+
+

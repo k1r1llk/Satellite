@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1232.0" style="-fx-background-color: e3f3ff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ChartsController">
+    <children>
+        <LineChart fx:id="lineChart" layoutX="14.0" layoutY="14.0" prefHeight="635.0" prefWidth="1158.0" style="-fx-background-color: e3f3ff;" styleClass="thick-chart.css" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="15.0">
+            <xAxis>
+                <CategoryAxis side="BOTTOM" />
+            </xAxis>
+            <yAxis>
+                <NumberAxis side="LEFT" />
+            </yAxis>
+        </LineChart>
+        <Text layoutX="1187.0" layoutY="611.0" strokeType="OUTSIDE" strokeWidth="0.0" text="t , с" AnchorPane.bottomAnchor="100.0" AnchorPane.rightAnchor="10.0">
+            <font>
+                <Font name="Times New Roman" size="20.0" />
+            </font>
+        </Text>
+        <Text layoutX="-31.0" layoutY="342.0" rotate="-90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3 * рад/с, рад" wrappingWidth="109.28515625" AnchorPane.leftAnchor="-35.0">
+            <font>
+                <Font name="Times New Roman" size="18.0" />
+            </font>
+        </Text>
+    </children>
+</AnchorPane>
