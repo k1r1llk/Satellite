@@ -69,36 +69,7 @@
         </dependency>
 
     </dependencies>
-    <profiles>
-        <profile>
-            <id>build-patch</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-assembly-plugin</artifactId>
-                        <version>3.2.0</version>
-                        <executions>
-                            <execution>
-                                <id>generate ${tool.name} build zip</id>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>single</goal>
-                                </goals>
-                                <configuration>
-                                    <descriptors>
-                                        <descriptor>dist/assembly/${tool.name}.xml</descriptor>
-                                    </descriptors>
-                                    <finalName>${tool.build.name}</finalName>
-                                    <appendAssemblyId>false</appendAssemblyId>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
 
-            </build>
-        </profile>
-    </profiles>
 
 </project>
 

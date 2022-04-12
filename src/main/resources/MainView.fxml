@@ -1,22 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
     <tabs>
-        <Tab text="Старт">
+        <Tab text="Start">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: e3f3ff;">
                     <children>
-                        <Button layoutX="160.0" layoutY="122.0" mnemonicParsing="false" onAction="#showAccelerationSection" prefHeight="49.0" prefWidth="125.0" style="-fx-background-color: f5fffa;" text="Показать участок&#10;разгона" textAlignment="CENTER">
+
+                        <Button fx:id="btn_Start" layoutX="161.0" layoutY="58.0" mnemonicParsing="false" onAction="#showFullGraph" prefHeight="49.0" prefWidth="126.0" style="-fx-background-color: f5fffa;" text="Полный&#10;график" textAlignment="CENTER" AnchorPane.leftAnchor="161.0" AnchorPane.rightAnchor="513.0">
                             <font>
                                 <Font name="Times New Roman" size="14.0" />
                             </font></Button>
-                        <Button ellipsisString="" layoutX="159.0" layoutY="184.0" mnemonicParsing="false" onAction="#showBrakingSection" prefHeight="48.0" prefWidth="127.0" style="-fx-background-color: f5fffa;" text="Показать участок &#10;торможения" textAlignment="CENTER" textOverrun="CLIP">
+
+                        <Label layoutX="514.0" layoutY="48.0" text="ДУП" AnchorPane.rightAnchor="259.0">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+
+                        <RadioButton fx:id="rb_DUP_Failure" layoutX="480.0" layoutY="98.0" mnemonicParsing="false" text="Зануление">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </RadioButton>
+
+                        <RadioButton fx:id="rb_DUP_sticking" layoutX="479.0" layoutY="135.0" mnemonicParsing="false" text="Залипание">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </RadioButton>
+
+                        <Label layoutX="451.0" layoutY="175.0" text="Время появления [сек]" />
+                        <TextField fx:id="tf_DUP_time" layoutX="489.0" layoutY="200.0" prefHeight="25.0" prefWidth="80.0" />
+
+
+                        <Label layoutX="514.0" layoutY="250.0" text="ДУС" >
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+
+                        <RadioButton fx:id="rb_DUS_Failure" layoutX="480.0" layoutY="300.0" mnemonicParsing="false" text="Зануление">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </RadioButton>
+
+                        <RadioButton fx:id="rb_DUS_sticking" layoutX="480.0" layoutY="337.0" mnemonicParsing="false" text="Залипание">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </RadioButton>
+
+                        <Label layoutX="451.0" layoutY="377.0" text="Время появления [сек]" />
+                        <TextField fx:id="tf_DUS_time" layoutX="489.0" layoutY="402.0" prefHeight="25.0" prefWidth="80.0" />
+
+
+
+
+                        <Button layoutX="160.0" layoutY="122.0" mnemonicParsing="false" onAction="#showAccelerationSection" prefHeight="49.0" prefWidth="125.0" style="-fx-background-color: f5fffa;" text="Участок&#10;разгона" textAlignment="CENTER">
+                            <font>
+                                <Font name="Times New Roman" size="14.0" />
+                            </font></Button>
+                        <Button ellipsisString="" layoutX="159.0" layoutY="184.0" mnemonicParsing="false" onAction="#showBrakingSection" prefHeight="48.0" prefWidth="127.0" style="-fx-background-color: f5fffa;" text="Участок &#10;торможения" textAlignment="CENTER" textOverrun="CLIP">
                             <font>
                                 <Font name="Times New Roman" size="14.0" />
                             </font></Button>

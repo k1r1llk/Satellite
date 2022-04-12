@@ -22,7 +22,7 @@
                 <Font name="Times New Roman" size="20.0" />
             </font>
         </Text>
-        <Text layoutX="-31.0" layoutY="342.0" rotate="-90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3 * рад/с, рад" wrappingWidth="109.28515625" AnchorPane.leftAnchor="-35.0">
+        <Text layoutX="-31.0" layoutY="342.0" rotate="-90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="рад/с, рад" wrappingWidth="109.28515625" AnchorPane.leftAnchor="-35.0">
             <font>
                 <Font name="Times New Roman" size="18.0" />
             </font>

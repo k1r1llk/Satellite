@@ -21,7 +21,7 @@ public class RunGUI extends Application {
         fxmlLoader.setLocation(url);
 
         Parent root = fxmlLoader.load();
-        primaryStage.setTitle("BUSS");
+        primaryStage.setTitle("Satellite");
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
