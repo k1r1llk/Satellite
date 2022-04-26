@@ -1,13 +1,13 @@
 package model.Errors;
 
-import model.AngularMotion;
+import model.Motion;
 
 public class DusStick implements SensorError {
-    private AngularMotion am;
+    private Motion am;
     private double dusStickValue = 0;
     private double s_err_t;
 
-    public DusStick(AngularMotion am, double s_err_t) {
+    public DusStick(Motion am, double s_err_t) {
         this.am = am;
         this.s_err_t = s_err_t;
     }

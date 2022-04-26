@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import static java.lang.Math.abs;
 
-public class AngularMotion {
+public class Motion {
 
     private double x = 0.01; // начальное отклонение угла
     private double dx = 0; // начальная угловая скорость
@@ -22,26 +22,38 @@ public class AngularMotion {
     private double prevX = 0;
     private double prevDx = 0;
     private double discreteX = 0.01;
+    public double discreteX2 = 0.01;
     private double discreteDx = 0;
     public double discreteDx1 = 0;
 
     private double t = 0;
 
     private double prevDisX = 0.01;
+    private double prevDisX1 = 0.01;
     private double prevDisDx = 0;
     private double prevDisDx1 = 0;
     private ArrayList<Double> difDup = new ArrayList<>();
     private ArrayList<Double> intDus = new ArrayList<>();
     private double integralDus = 0.01;
     private SensorError sensors;
+    private boolean filterIsEnabled = false;
     private double diffDup = 0;
+    private int countStick = 0;
+    private boolean isSwitch = false;
+    private boolean p_err = false;
+    private boolean s_err = false;
     private double dupValue = 0.01;
+    private double dupValue2 = 0.01;
     private double dusValue = 0;
     private double dusValue1 = 0;
     private double prevDup = 0;
+    private double prevDup1 = 0;
     private double prevDus = 0;
     private double prevDus1 = 0;
 
+    public void setFilterIsEnabled(boolean filterIsEnabled) {
+        this.filterIsEnabled = filterIsEnabled;
+    }
 
     public double getDupValue() {
         return dupValue;
@@ -66,7 +78,13 @@ public class AngularMotion {
         this.dupValue = discreteX;
 
     }
-
+    public void setDiscreteX1() {
+        prevDisX1 = discreteX2 ;
+        prevDup1 = dupValue2 ;
+        //this.discreteX = sensors.getX(t);
+        this.discreteX2 = integralDus;
+        this.dupValue2 = discreteX2;
+    }
 
     public void setDiscreteDx() {
         prevDisDx = discreteDx ;
@@ -83,7 +101,65 @@ public class AngularMotion {
         this.dusValue1 = discreteDx1;
     }
 
+    public void errorFilteringUnit() {
+        if (!isSwitch) {
+            String errorType = errorDetectionModuleDUP(integralDus, prevDisX, discreteX, t);
+            switch (errorType) {
+                case "dupFailure": {
+                    this.discreteX = integralDus;
+                    isSwitch = true;
+                    p_err = true;
+                    break;
+                }
+                case "dupStick": {
+                    if (countStick < 2) countStick++;
+                    else {
+                        this.discreteX = integralDus;
+                        isSwitch = true;
+                        p_err = true;
+                    }
+                    break;
+                }
+                case "dupPomeh": {
+                    this.discreteX = prevDisX;
+                    break;
+                }
+                default:
+                    break;
+            }
 
+            errorType = errorDetectionModuleDUS(diffDup, prevDisDx, discreteDx, t);
+            switch (errorType) {
+                case "dusFailure": {
+                    this.discreteDx = diffDup;
+                    isSwitch = true;
+                    s_err = true;
+                    break;
+                }
+                case "dusStick": {
+                    if (countStick < 2) countStick++;
+                    else {
+                        this.discreteDx = diffDup;
+                        isSwitch = true;
+                        s_err = true;
+                    }
+                    break;
+                }
+                case "dusPomeh": {
+                    this.discreteDx = prevDisDx;
+                    break;
+                }
+                default:
+                    break;
+            }
+        } else {
+            if (p_err)
+                this.discreteX = integralDus;
+            else if (s_err) {
+                this.discreteDx = diffDup;
+            }
+        }
+    }
 
 
 
@@ -103,7 +179,7 @@ public class AngularMotion {
 
     }
 
-    public AngularMotion() {
+    public Motion() {
     }
 
     //Вычсиление нормальных значений
@@ -213,6 +289,38 @@ public class AngularMotion {
 
     public double getCurIntDus() {
         return integralDus;
+    }
+
+    //модуль обнаружения ошибки ДУП
+    private String errorDetectionModuleDUP(double intDx, double prevX, double curX, double t) {
+        if (t > 1) {
+            if (Math.abs(curX) == 0 && Math.abs(intDx/(curX + 0.00001)) > 3){
+                return "dupFailure"; //отказ (обнуление)
+            }
+            if (Math.abs(intDx - curX) > 0.03 && Math.abs(prevX - curX) < 0.00001){
+                return "dupStick"; //отказ (залипание)
+            }
+            if (Math.abs(prevX - curX) > 0.15 && (Math.abs(intDx/curX) >= 2 || Math.abs(curX/intDx) >= 2)){
+                return "dupPomeh"; // однократная помеха
+            }
+        }
+        return "";
+    }
+
+    //модуль обнаружения ошибки ДУС
+    private String errorDetectionModuleDUS(double difX, double prevDx, double curDx, double t) {
+        if (t > 1) {
+            if (Math.abs(curDx) == 0 && Math.abs(difX/(curDx + 0.00001)) > 3) {
+                return "dusFailure"; //отказ (обнуление)
+            }
+            if (Math.abs(prevDx - curDx) < 0.0001 && (Math.abs(difX - curDx) > 0.0001)) {
+                return "dusStick"; //отказ (залипание)
+            }
+            if (Math.abs(difX - curDx) > 0.02 && (Math.abs(prevDx - curDx) > 0.02)) {
+                return "dusPomeh"; // однократная помеха
+            }
+        }
+        return "";
     }
 
 }

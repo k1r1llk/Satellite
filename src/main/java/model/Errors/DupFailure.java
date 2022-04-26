@@ -1,13 +1,13 @@
 package model.Errors;
 
 
-import model.AngularMotion;
+import model.Motion;
 
 public class DupFailure implements SensorError {
 
-    private AngularMotion am;
+    private Motion am;
 
-    public DupFailure(AngularMotion am, double p_err_t) {
+    public DupFailure(Motion am, double p_err_t) {
         this.am = am;
         this.p_err_t = p_err_t;
     }

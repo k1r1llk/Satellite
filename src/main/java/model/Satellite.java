@@ -54,49 +54,167 @@ public class Satellite {
         this.k1 = k1;
         this.dt = dt;
     }
+
     public double getJ_z() {
         return J_z;
     }
+
+    public void setJ_z(double j_z) {
+        J_z = j_z;
+    }
+
+    public double getM_z() {
+        return m_z;
+    }
+
+    public void setM_z(double m_z) {
+        this.m_z = m_z;
+    }
+
+    public double getA_z() {
+        return a_z;
+    }
+
+    public void setA_z(double a_z) {
+        this.a_z = a_z;
+    }
+
     public double getJ_m() {
         return J_m;
     }
+
+    public void setJ_m(double j_m) {
+        J_m = j_m;
+    }
+
     public double getW_max() {
         return w_max;
     }
+
+    public void setW_max(double w_max) {
+        this.w_max = w_max;
+    }
+
     public double getH_max() {
         return H_max;
     }
+
+
+    public double getP_rc() {
+        return P_rc;
+    }
+
+    public void setP_rc(double p_rc) {
+        P_rc = p_rc;
+    }
+
+    public double getL_m() {
+        return L_m;
+    }
+
+    public void setL_m(double l_m) {
+        L_m = l_m;
+    }
+
+    public double getM_rc() {
+        return M_rc;
+    }
+
     public double getM_rc_() {
         return M_rc_;
     }
+
+    public double getW_1_max() {
+        return w_1_max;
+    }
+
+    public void setW_1_max(double w_1_max) {
+        this.w_1_max = w_1_max;
+    }
+
+    public double getM_m_max() {
+        return M_m_max;
+    }
+
     public double getW_1_b() {
         return w_1_b;
     }
+
+    public void setW_1_b(double w_1_b) {
+        this.w_1_b = w_1_b;
+    }
+
+    public double getM_b() {
+        return M_b;
+    }
+
     public double getM_b_() {
         return M_b_;
     }
+
     public double getM_p_() {
         return M_p_;
     }
+
+    public void setM_p_(double m_p_) {
+        M_p_ = m_p_;
+    }
+
     public double getR() {
         return r;
     }
+
+    public void setR(double r) {
+        this.r = r;
+    }
+
     public double getA0() {
         return a0;
     }
+
+    public void setA0(double a0) {
+        this.a0 = a0;
+    }
+
     public double getA1() {
         return a1;
     }
+
+    public void setA1(double a1) {
+        this.a1 = a1;
+    }
+
     public double getA() {
         return a;
     }
+
+    public void setA(double a) {
+        this.a = a;
+    }
+
     public double getK0() {
         return k0;
     }
+
+    public void setK0(double k0) {
+        this.k0 = k0;
+    }
+
     public double getK1() {
         return k1;
     }
 
+    public void setK1(double k1) {
+        this.k1 = k1;
+    }
+
+    public double getDt() {
+        return dt;
+    }
+
+    public void setDt(double dt) {
+        this.dt = dt;
+    }
 
 
 }

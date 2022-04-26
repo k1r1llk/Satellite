@@ -1,10 +1,10 @@
 package model.Errors;
 
-import model.AngularMotion;
+import model.Motion;
 
 public class NormalSensor implements SensorError {
 
-    AngularMotion am;
+    Motion am;
 
 
     @Override
@@ -12,7 +12,7 @@ public class NormalSensor implements SensorError {
         return am.getX();
     }
 
-    public NormalSensor(AngularMotion am) {
+    public NormalSensor(Motion am) {
         this.am = am;
     }
 
